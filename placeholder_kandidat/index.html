@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kandidát | Mladí Bučováci</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><img class="brand-mark" src="../assets/rtenka_logo.png" alt="Logo Mladých Bučováků"><span>Mladí <strong>Bučováci</strong></span></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  <nav id="main-nav" class="main-nav" aria-label="Hlavní navigace"><a href="../index.html">Domů</a><a href="../program/index.html">Program</a><a href="../index.html#kandidati">Kandidáti</a><a href="../index.html#kontakt">Kontakt</a></nav>
+</header>
+<main>
+  <section class="candidate-detail reveal">
+    <div class="candidate-detail-grid">
+      <div class="candidate-detail-photo"><img id="candidate-photo" src="../assets/candidates-placeholder.svg" alt="Fotografie kandidáta"></div>
+      <div class="candidate-detail-copy"><p class="eyebrow">Kandidát / kandidátka</p><h1 id="candidate-name">Jmeno Prijmeni</h1><p id="candidate-role" class="candidate-detail-role">Profese / oblast</p><p id="candidate-bio" class="candidate-biography">Zde bude biografie kandidáta. Doplňte zkušenosti, profesní život, vztah k Bučovicím, motivaci kandidovat a konkrétní témata, kterým se chce věnovat.</p></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+    <div class="footer-top">
+      <a class="brand footer-brand" href="#top"><img class="brand-mark" src="../assets/rtenka_logo.png" alt="Logo Mladých Bučováků"><span>Mladí <strong>Bučováci</strong></span></a>
+      <nav class="footer-nav" aria-label="Patička">
+        <a href="../program/index.html">Program</a><a href="../index.html#kandidati">Kandidáti</a>
+        <a href="#media">Pro média</a><a href="#privacy">Ochrana údajů</a><a href="#terms">Podmínky užití</a>
+        <a href="#transparentnost">Transparentnost</a><a href="#cookies">Nastavení cookies</a>
+      </nav>
+      <div class="socials" aria-label="Sociální sítě">
+        <a href="https://www.facebook.com/profile.php?id=61593550298514" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Mladí Bučováci</span><span>Bučovice, Česká republika</span></div>
+  </footer>
+<script src="../js/main.js"></script>
+<script>
+const candidates = {
+  "1": { name: "Dominik Řičánek", role: "Komunita • podnikání", photo: "../assets/big_pic.png", bio: "Zde bude skutečná biografie prvního kandidáta. Doplňte informace o profesi, zkušenostech, aktivitách v Bučovicích, motivaci kandidovat a tématech, kterým se chce v zastupitelstvu věnovat." },
+  "2": { name: "Ivana Oliva Koudelková", role: "Statik", photo: "../assets/candidate-2-placeholder.svg", bio: "Zde bude skutečná biografie druhého kandidáta. Doplňte informace o profesi, zkušenostech, aktivitách v Bučovicích, motivaci kandidovat a tématech, kterým se chce v zastupitelstvu věnovat." },
+  "3": { name: "Tomáš Masař", role: "Zaměstnanec SAKO", photo: "../assets/tom_big.png", bio: "Zde bude skutečná biografie třetího kandidáta. Doplňte informace o profesi, zkušenostech, aktivitách v Bučovicích, motivaci kandidovat a tématech, kterým se chce v zastupitelstvu věnovat." },
+  "4": { name: "Vojtěch Koudelka", role: "Stavební manažer • Urbanista", photo: "../assets/vojta_big.png", bio: "Zde bude skutečná biografie čtvrtého kandidáta. Doplňte informace o profesi, zkušenostech, aktivitách v Bučovicích, motivaci kandidovat a tématech, kterým se chce v zastupitelstvu věnovat." },
+  "5": { name: "Martin Lutišan", role: "Specialista v oblasti tool-managementu", photo: "../assets/candidate-4-placeholder.svg", bio: "Zde bude skutečná biografie čtvrtého kandidáta. Doplňte informace o profesi, zkušenostech, aktivitách v Bučovicích, motivaci kandidovat a tématech, kterým se chce v zastupitelstvu věnovat." },
+  "6": { name: "Marie Holíčková", role: "Studentka", photo: "../assets/candidate-4-placeholder.svg", bio: "Zde bude skutečná biografie čtvrtého kandidáta. Doplňte informace o profesi, zkušenostech, aktivitách v Bučovicích, motivaci kandidovat a tématech, kterým se chce v zastupitelstvu věnovat." },
+  "7": { name: "Karel Kučera", role: "Zvukař", photo: "../assets/candidate-4-placeholder.svg", bio: "Zde bude skutečná biografie čtvrtého kandidáta. Doplňte informace o profesi, zkušenostech, aktivitách v Bučovicích, motivaci kandidovat a tématech, kterým se chce v zastupitelstvu věnovat." },
+  "8": { name: "Petra Masařová", role: "Fitness trenérka", photo: "../assets/candidate-4-placeholder.svg", bio: "Zde bude skutečná biografie čtvrtého kandidáta. Doplňte informace o profesi, zkušenostech, aktivitách v Bučovicích, motivaci kandidovat a tématech, kterým se chce v zastupitelstvu věnovat." }
+};
+const id = new URLSearchParams(location.search).get('kandidat') || '1';
+const candidate = candidates[id] || candidates['1'];
+document.querySelector('#candidate-name').textContent = candidate.name;
+document.querySelector('#candidate-role').textContent = candidate.role;
+document.querySelector('#candidate-bio').textContent = candidate.bio;
+document.querySelector('#candidate-photo').src = candidate.photo;
+document.querySelector('#candidate-photo').alt = 'Fotografie kandidáta: ' + candidate.name;
+document.title = candidate.name + ' | Mladí Bučováci';
+</script>
+</body></html>

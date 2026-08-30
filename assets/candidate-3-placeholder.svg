@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900">
+  <rect width="800" height="900" fill="#DBEAF4"/>
+  <circle cx="400" cy="300" r="130" fill="#B7D2E4"/>
+  <path d="M170 800c35-190 150-280 230-280s195 90 230 280" fill="#B7D2E4"/>
+  <text x="400" y="850" text-anchor="middle" fill="#6D8CA0" font-family="Arial,sans-serif" font-size="28" font-weight="700">FOTO KANDIDÁTA 3</text>
+</svg>

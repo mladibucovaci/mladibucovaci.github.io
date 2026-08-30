@@ -1,0 +1,184 @@
+/* =========================================================
+   Mladí Bučováci — hlavní styly
+   ========================================================= */
+
+:root {
+  --red: #D12823;
+  --blue: #76B0D8;
+  --white: #FFFFFF;
+  --ink: #12171B;
+  --muted: #65717A;
+  --light-bg: #F7FAFC;
+  --dark-bg: #080D10;
+  --dark-panel: #172126;
+  --line: rgba(18, 23, 27, 0.12);
+  --radius: 24px;
+  --content-width: 1240px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--white);
+  font-family: "DM Sans", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; transition: color .25s ease, transform .25s ease, background-color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+a:hover { color: var(--red); }
+img { display: block; max-width: 100%; }
+button, input, textarea { font: inherit; }
+
+/* ---------- Typografie ---------- */
+h1, h2, h3 { margin: 0; font-family: "Space Grotesk", sans-serif; line-height: .98; }
+h1 { font-size: clamp(52px, 8vw, 112px); letter-spacing: -.055em; }
+h2 { font-size: clamp(44px, 6vw, 82px); letter-spacing: -.05em; }
+h1 span, h2 span { color: var(--blue); }
+.eyebrow { margin: 0 0 20px; color: var(--red); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
+/* ---------- Hlavička a logo ---------- */
+.site-header {
+  position: fixed; z-index: 20; inset: 0 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 5vw; background: rgba(255,255,255,.88);
+  backdrop-filter: blur(14px); border-bottom: 1px solid rgba(18,23,27,.06);
+}
+.brand { display: flex; align-items: center; gap: 11px; color: var(--ink); font-weight: 500; }
+.brand:hover { color: var(--ink); } /* brand se při hoveru nepřebarvuje */
+.brand-mark { width: 42px; height: 42px; flex: 0 0 42px; object-fit: contain; }
+/* Nahraďte assets/logo-placeholder.svg skutečným logem. */
+.main-nav { display: flex; gap: 28px; font-size: 14px; font-weight: 700; }
+.main-nav a:hover { transform: translateY(-2px); }
+.menu-toggle { display: none; border: 0; background: transparent; font-weight: 700; cursor: pointer; }
+
+/* ---------- Společné sekce ---------- */
+.full-section { position: relative; min-height: 100svh; display: flex; align-items: center; padding: 110px 5vw; }
+.section-inner { width: 100%; max-width: var(--content-width); margin: 0 auto; }
+.section-heading { margin-bottom: 50px; }
+
+/* ---------- Hero ---------- */
+.hero { isolation: isolate; overflow: hidden; color: var(--white); }
+/* .hero-photo{position:absolute;inset:0;background:linear-gradient(115deg,#17232b,#52798f 45%,#b8d4e5);background-image:url("../assets/main_page_logo.png");background-size:cover;background-position:center;z-index:-2} */
+.hero-photo {
+  position: absolute; z-index: -2; inset: 0;
+  background: linear-gradient(115deg,#17232B,#52798F 45%,#B8D4E5);
+  background-image: url("../assets/main_page_logo.png");
+  background-size: cover; background-position: center;
+}
+.hero-overlay { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg,rgba(10,17,21,.78),rgba(10,17,21,.28)); }
+.hero-content { max-width: 760px; }
+.hero .eyebrow { color: var(--blue); }
+.hero-lead { max-width: 610px; margin: 28px 0 34px; font-size: clamp(17px,2vw,21px); line-height: 1.5; }
+.hero-actions { display: flex; align-items: center; gap: 26px; }
+.scroll-cue { position: absolute; right: 5vw; bottom: 30px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
+
+/* ---------- Tlačítka ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 22px; border: 0; border-radius: 999px; font-weight: 700; cursor: pointer; }
+.btn-primary { color: var(--white); background: var(--red); }
+.btn-primary:hover { color: var(--white); background: #A91E1A; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(209,40,35,.25); }
+.text-link { font-weight: 700; }
+
+/* ---------- Program cards ---------- */
+.program { background: var(--light-bg); }
+.program-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.program-card { display: block; min-height: 245px; padding: 28px; color: var(--ink); background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); }
+.program-card:hover { color: var(--ink); transform: translateY(-8px); border-color: var(--blue); box-shadow: 0 20px 50px rgba(25,45,60,.1); }
+.program-card > span { color: var(--red); font-family: "Space Grotesk", sans-serif; font-weight: 700; }
+.program-card h3 { margin: 45px 0 12px; font-size: 25px; }
+.program-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+/* ---------- Kandidáti ---------- */
+.candidates { background: var(--blue); }
+.candidates .eyebrow { color: var(--red); }
+.candidate-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.candidate-card { display: block; overflow: hidden; color: var(--ink); background: var(--white); border-radius: var(--radius); }
+.candidate-card:hover { color: var(--ink); transform: translateY(-8px); }
+
+/*
+   .portrait je připravený pro skutečnou fotografii.
+   Stačí ponechat <img> uvnitř a nahradit src skutečným souborem.
+*/
+.portrait { position: relative; height: 290px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #DBEAF4; color: #6D8CA0; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; }
+.candidate-card > div:last-child { padding: 20px 22px; }
+.candidate-card h3 { margin-bottom: 7px; font-size: 22px; }
+.candidate-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+.edit-note { margin-top: 18px; font-size: 12px; opacity: .7; }
+
+/* ---------- Kontakt ---------- */
+.contact { padding: 120px 5vw; color: var(--white); background: #10171B; }
+.contact .eyebrow { color: var(--blue); }
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: start; }
+.contact-layout > div > p { max-width: 450px; margin-top: 25px; color: #B7C2C8; line-height: 1.6; }
+.contact-form { display: grid; gap: 18px; }
+.contact-form label { display: grid; gap: 8px; font-size: 13px; font-weight: 700; }
+.contact-form input:not([type="checkbox"]), .contact-form textarea { width: 100%; padding: 15px 16px; color: var(--white); background: var(--dark-panel); border: 1px solid #39464D; border-radius: 14px; outline: none; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--blue); }
+.checkbox { display: flex !important; flex-direction: row; align-items: flex-start; color: #B7C2C8; font-weight: 400 !important; }
+.checkbox input { margin-top: 3px; }
+.form-status { min-height: 20px; margin: 0; color: var(--blue); font-size: 13px; }
+
+/* ---------- Detail programu ---------- */
+.detail-page { padding-top: 130px; }
+.detail-hero { min-height: 55svh; display: flex; align-items: center; padding: 120px 5vw; color: var(--white); background: linear-gradient(120deg,#10171B,#263D4A); }
+.detail-content { max-width: var(--content-width); width: 100%; margin: 0 auto; }
+.program-detail { padding: 100px 5vw; }
+.program-detail-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 70px; max-width: var(--content-width); margin: 0 auto; }
+.program-topic { padding: 34px 0; border-top: 1px solid var(--line); }
+.program-topic:first-child { padding-top: 0; border-top: 0; }
+.program-topic h2 { margin-bottom: 18px; font-size: clamp(30px,4vw,48px); }
+.program-topic p, .program-topic li { color: var(--muted); line-height: 1.75; }
+.program-topic ul { padding-left: 20px; }
+
+/* ---------- Detail kandidáta ---------- */
+.candidate-detail { min-height: 100svh; display: flex; align-items: center; padding: 130px 5vw 90px; }
+.candidate-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; max-width: var(--content-width); width: 100%; margin: 0 auto; }
+.candidate-detail-photo { min-height: 650px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #DBEAF4; border-radius: var(--radius); }
+.candidate-detail-photo img { width: 100%; height: 100%; min-height: 650px; object-fit: cover; }
+.candidate-detail-copy h1 { margin-bottom: 18px; font-size: clamp(48px,6vw,82px); }
+.candidate-detail-role { margin: 0 0 30px; color: var(--red); font-weight: 700; }
+.candidate-biography { max-width: 620px; color: var(--muted); font-size: 18px; line-height: 1.8; }
+
+/* ---------- Patička ---------- */
+.site-footer { padding: 50px 5vw 22px; color: #CBD3D7; background: var(--dark-bg); }
+.footer-top { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 40px; align-items: start; max-width: var(--content-width); margin: 0 auto; }
+.footer-brand { color: var(--white); }
+.footer-brand:hover { color: var(--white); }
+.footer-nav { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; font-size: 13px; }
+.socials { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; font-size: 13px; }
+.footer-bottom { display: flex; justify-content: space-between; max-width: var(--content-width); margin: 50px auto 0; padding-top: 18px; color: #7F8C93; border-top: 1px solid #273238; font-size: 11px; }
+
+/* ---------- Scroll animace ---------- */
+.reveal { opacity: 0; transform: translateY(50px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- Responzivita ---------- */
+@media (max-width: 900px) {
+  .main-nav { display: none; }
+  .menu-toggle { display: block; }
+  .main-nav.open { position: absolute; top: 78px; right: 5vw; display: flex; flex-direction: column; padding: 20px; background: var(--white); border-radius: 18px; box-shadow: 0 15px 40px rgba(0,0,0,.12); }
+  .program-grid, .candidate-grid { grid-template-columns: 1fr 1fr; }
+  .contact-layout, .candidate-detail-grid, .program-detail-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .socials { align-items: flex-start; }
+  .candidate-detail-photo, .candidate-detail-photo img { min-height: 520px; }
+  .full-section { padding-top: 130px; }
+}
+
+@media (max-width: 600px) {
+  .site-header { padding: 16px 5vw; }
+  .brand-mark { width: 36px; height: 36px; flex-basis: 36px; }
+  .program-grid, .candidate-grid { grid-template-columns: 1fr; }
+  .hero-actions { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .hero { min-height: 100svh; }
+  .footer-nav { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
+  .candidate-detail { padding-top: 120px; }
+  .candidate-detail-photo, .candidate-detail-photo img { min-height: 420px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .reveal.is-visible, .program-card, .candidate-card, .btn { transform: none; transition: none; }
+}
