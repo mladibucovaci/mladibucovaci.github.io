@@ -59,11 +59,11 @@ h1 span, h2 span { color: var(--blue); }
 
 /* ---------- Hero ---------- */
 .hero { isolation: isolate; overflow: hidden; color: var(--white); }
-/* .hero-photo{position:absolute;inset:0;background:linear-gradient(115deg,#17232b,#52798f 45%,#b8d4e5);background-image:url("../assets/main_page_logo.png");background-size:cover;background-position:center;z-index:-2} */
+/* .hero-photo{position:absolute;inset:0;background:linear-gradient(115deg,#17232b,#52798f 45%,#b8d4e5);background-image:url("../assets/main_page_logo.jpg");background-size:cover;background-position:center;z-index:-2} */
 .hero-photo {
   position: absolute; z-index: -2; inset: 0;
   background: linear-gradient(115deg,#17232B,#52798F 45%,#B8D4E5);
-  background-image: url("../assets/main_page_logo.png");
+  background-image: url("../assets/main_page_logo.jpg");
   background-size: cover; background-position: center;
 }
 .hero-overlay { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg,rgba(10,17,21,.78),rgba(10,17,21,.28)); }
