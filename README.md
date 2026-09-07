@@ -5,7 +5,7 @@ Statický responzivní web v čistém HTML/CSS/JavaScriptu.
 ## Struktura
 - `index.html` — hlavní stránka
 - `program/index.html` — detailní volební program
-- `placeholder_kandidat/index.html` — detail kandidáta; aktuálně se přepíná přes `?kandidat=1` až `?kandidat=4`
+- `kandidatdat/index.html` — detail kandidáta; aktuálně se přepíná přes `?kandidat=1` až `?kandidat=4`
 - `css/styles.css` — formátovaný a komentovaný CSS
 - `js/main.js` — navigace a animace
 - `assets/logo-placeholder.svg` — placeholder pro vlastní logo
