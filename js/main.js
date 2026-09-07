@@ -29,6 +29,6 @@ const status = document.querySelector('.form-status');
 
 form?.addEventListener('submit', (event) => {
   event.preventDefault();
-  status.textContent = 'Děkujeme. Demo formuláře je připravené k napojení na váš e-mail nebo backend.';
+  status.textContent = 'Děkujeme za Váš dotaz. Ozveme se Vám obratem.';
   form.reset();
 });
