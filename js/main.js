@@ -29,6 +29,6 @@ const status = document.querySelector('.form-status');
 
 form?.addEventListener('submit', (event) => {
   event.preventDefault();
-  status.textContent = 'Děkujeme za Váš dotaz. Ozveme se Vám obratem.';
+  status.textContent = 'Děkujeme za Váš dotaz!';
   form.reset();
 });
