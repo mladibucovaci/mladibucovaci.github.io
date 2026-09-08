@@ -123,11 +123,16 @@
           <h2 id="contact-title">Máte otázku?<br><span>Napište nám.</span></h2>
           <p>Chceme slyšet, co se v Bučovicích daří a co bychom měli změnit.</p>
         </div>
-        <form class="contact-form" id="contact-form">
+        <form class="contact-form" id="contact-form" action="https://formsubmit.co/mladibucovaci@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nová zpráva z webu Mladí Bučováci">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
           <label>Jméno<input name="name" required autocomplete="name"></label>
           <label>E-mail<input type="email" name="email" required autocomplete="email"></label>
           <label>Zpráva<textarea name="message" rows="5" required></textarea></label>
-          <label class="checkbox"><input type="checkbox" required> Souhlasím se zpracováním údajů pro vyřízení zprávy.</label>
+          <label class="checkbox"><input type="checkbox" name="consent" value="Ano" required> Souhlasím se zpracováním údajů pro vyřízení zprávy.</label>
           <button class="btn btn-primary" type="submit">Odeslat zprávu</button>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>

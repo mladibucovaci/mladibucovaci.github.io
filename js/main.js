@@ -27,8 +27,59 @@ document.querySelectorAll('.reveal').forEach((element) => observer.observe(eleme
 const form = document.querySelector('#contact-form');
 const status = document.querySelector('.form-status');
 
-form?.addEventListener('submit', (event) => {
+form?.addEventListener('submit', async (event) => {
   event.preventDefault();
-  status.textContent = 'Děkujeme za Váš dotaz!';
-  form.reset();
+
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  // Honeypot proti jednoduchým spam botům. Pro běžného návštěvníka musí zůstat prázdný.
+  const honey = form.querySelector('[name="_honey"]');
+  if (honey?.value) {
+    return;
+  }
+
+  const button = form.querySelector('button[type="submit"]');
+  const originalButtonText = button?.textContent;
+
+  if (button) {
+    button.disabled = true;
+    button.textContent = 'Odesílám…';
+  }
+
+  status.textContent = 'Odesílám vaši zprávu…';
+  status.classList.remove('is-error', 'is-success');
+
+  try {
+    const formData = new FormData(form);
+
+    // E-mail návštěvníka nastavíme jako adresu pro odpověď.
+    formData.set('_replyto', formData.get('email'));
+
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Accept: 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error('Odeslání se nezdařilo.');
+    }
+
+    status.textContent = 'Děkujeme. Vaše zpráva byla úspěšně odeslána.';
+    status.classList.add('is-success');
+    form.reset();
+  } catch (error) {
+    status.textContent = 'Zprávu se nepodařilo odeslat. Zkuste to prosím znovu nebo nám napište přímo na mladibucovaci@gmail.com.';
+    status.classList.add('is-error');
+  } finally {
+    if (button) {
+      button.disabled = false;
+      button.textContent = originalButtonText;
+    }
+  }
 });
